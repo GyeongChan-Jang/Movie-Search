@@ -1,76 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <script defer src='main.js'></script>
+  <script defer="defer" src="main.js"></script>
   <title>MovieBrary</title>
-  <!-- SCSS -->
   <link href="/src/scss/main.scss">
-  <!-- Font Awesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script defer="defer" src="main.js"></script>
 </head>
 
 <body>
   <div class="wrapper">
-    <!-- Logo -->
     <div class="logo">
       <div class="container">
         <p>Movie<span>Brary</span></p>
       </div>
     </div>
-    <!-- Search Container -->
     <div class="search-container">
       <div class="search-element">
-        <h3>Search Movie: </h3>
-        <input type="text" class="form-control" placeholder="Search Movie Title!" id="movie-search-box">
-        <div class="search-list">
-          <div class="search-list-item">
-            <div class="search-item-thumbnail">
-              <img src="/images/interstellar.jpg" alt="interstella">
-            </div>
-            <div class="search-item-info">
-              <h3>Interstella</h3>
-              <p>2014</p>
-            </div>
+        <h3>Search Movie:</h3><input class="form-control" placeholder="Search Movie Title!" id="movie-search-box">
+        <div class="search-list-itme">
+          <div class="search-item-thumbnail"></div>
+          <div class="search-item-info">
+            <h3>Interstella</h3>
+            <p>2014</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- Result Container -->
     <div class="container">
       <div class="result-container">
         <div class="result-grid" id="result-grid">
-          <div class="movie-poster">
-            <img src="/images/cover2.webp" alt="interstella">
-          </div>
+          <div class="movie-poster"><img src="/images/cover2.webp" alt="interstella"></div>
           <div class="movie-info">
-            <h3 class="movie-title">
-              Interstella
-            </h3>
+            <h3 class="movie-title">Interstella</h3>
             <ul class="movie-misc-info">
               <li class="year">Year: 2014</li>
               <li class="rated">Ratings:</li>
               <li class="released">Released: 26 Oct 2014</li>
             </ul>
-            <p class="genre">
-              <b>Genre:</b>Adventure,Drama, Sci-Fi
-            </p>
-            <p class="writer"><b>Writer:</b>
-              Jonathan NolanChristopher Nolan</p>
+            <p class="genre"><b>Genre:</b>Adventure,Drama, Sci-Fi</p>
+            <p class="writer"><b>Writer:</b> Jonathan NolanChristopher Nolan</p>
             <p class="actors"><b>Actors: Matthew McConaughey, Anne Hathaway, Jessca Chastain</b></p>
-            <p class="plot">
-              <b>
-                Plot:
-              </b>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
-            </p>
-            <p class="language"><b>Language:</b>
-              English</p>
+            <p class="plot"><b>Plot: </b>A team of explorers travel through a wormhole in space in an attempt to ensure
+              humanity's survival.</p>
+            <p class="language"><b>Language:</b> English</p>
             <p class="awards"><b><i class="fas fa-award"></i></b>Nominated for 1 Oscar</p>
           </div>
         </div>
