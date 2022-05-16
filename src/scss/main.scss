@@ -46,11 +46,11 @@ body {
         flex-direction: column;
         position: relative;
         h3 {
+          margin-top: 1rem;
           margin-right: 1rem;
           font-size: 2rem;
           color: $font-color;
           font-weight: 600;
-          margin-bottom: 1.5rem;
         }
         .form-control {
           padding: 1rem 2rem;
@@ -62,52 +62,44 @@ body {
           outline: none;
           color: $font-color;
           width: 350px;
+          margin-top: 1rem;
         }
-        .search-list {
-          background-color: $back-color;
-          position: absolute;
-          right: 0;
-          top: 100%;
-          max-height: 500px;
-          overflow-wrap: break-word;
-          overflow: auto;
-          z-index: 999;
-          .search-list-item {
-            background-color: $back-light;
-            padding: 0.5rem;
-            border-bottom: 1px solid $font-color;
-            width: 350px;
-            color: $font-color;
-            cursor: pointer;
-            transition: background-color 200ms ease;
-            &:hover {
-              background-color: $back-skyblue;
-            }
-            display: flex;
-            align-items: center;
-            .search-item-thumbnail {
-              img {
-                width: 40px;
-                margin-right: 1rem;
-              };
-            }
-            .search-item-info {
-              h3 {
-                font-weight: 500;
-                font-size: 1rem;
-              }
-              p {
-                font-size: 0.8rem;
-                margin-top: 0.5rem;
-                font-weight: 600;
-                opacity: 0.6;
-              }
-            }
-          }
-          // JS Related Class
-          &.hide-search-list {
-            display: none;
-          }
+        
+      }
+    }
+
+    // 검색 영화 나열
+    .search-list {
+      padding: 5rem;
+      display: grid;
+      right:0;
+      grid-template-columns: repeat(5, 1fr);
+      @media (max-width: 576) {
+        grid-column: 1;
+      }
+      @media (max-width: 1100px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media(min-width: 1700px) {
+        grid-template-columns: repeat(7, 1fr);
+      }
+      // JS Related Class
+      &.hide-search-list {
+        display: none;
+      }
+      .search-list-item {
+        border: 3px solid $font-color;
+        margin: 1rem;
+        padding: 1rem;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+        &:hover {
+          background-color: $back-light;
+        }
+        .search-item-info {
+          margin-top: 1rem;
+          border-top: 1px solid $font-color;
+          padding-top: 1rem;
         }
       }
     }
@@ -125,7 +117,8 @@ body {
         }
       }
     }
-    // Movie Result
+
+    // Movie Details Result
       .result-container {
         padding: 3rem 0;
         .result-grid {

@@ -60,62 +60,62 @@ function loadMovieDetails() {
     '.search-list-item',
   )
   searchListMoives.forEach((movie) => {
-    movie.addEventListener('click', async () => {
-      // console.log(movie.dataset.id)
-      searchListEl.classList.add('hide-search-list')
-      movieInputEl.value = ''
-      const res = await fetch(
-        `https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=7035c60c`,
-      )
-      const movieDetails = await res.json()
-      displayMovieDetails(movieDetails)
-      console.log(movieDetails)
-    })
+    // movie.addEventListener('click', async () => {
+    //   // console.log(movie.dataset.id)
+    //   searchListEl.classList.add('hide-search-list')
+    //   movieInputEl.value = ''
+    //   const res = await fetch(
+    //     `https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=7035c60c`,
+    //   )
+    //   const movieDetails = await res.json()
+    //   displayMovieDetails(movieDetails)
+    //   console.log(movieDetails)
+    // })
   })
 }
-function displayMovieDetails(details) {
-  resultGridEl.innerHTML = `
-  <div class="movie-poster">
-            <img src="${
-              details.Poster !== 'N/A'
-                ? details.Poster
-                : './images/NotFound.png'
-            }">
-          </div>
-          <div class="movie-info">
-            <h3 class="movie-title">
-              ${details.Title}
-            </h3>
-            <ul class="movie-misc-info">
-              <li class="year">Year: ${details.Year}</li>
-              <li class="rated">Ratings: ${
-                details.Ratings[0].Value
-              }</li>
-              <li class="released">Released: ${details.Released}</li>
-            </ul>
-            <p class="genre">
-              <b>Genre:</b>${details.Genre}
-            </p>
-            <p class="writer"><b>Writer:</b>
-              ${details.Writer}</p>
-            <p class="actors"><b>Actors: ${details.Actors}</b></p>
-            <p class="plot">
-              <b>
-                Plot:
-              </b>${details.Plot}
-            </p>
-            <p class="language"><b>Language:</b>
-              ${details.Language}</p>
-            <p class="awards"><b><i class="fas fa-award"></i></b>${
-              details.Awards
-            }</p>
-          </div>
-  `
-}
+// function displayMovieDetails(details) {
+//   resultGridEl.innerHTML = `
+//   <div class="movie-poster">
+//             <img src="${
+//               details.Poster !== 'N/A'
+//                 ? details.Poster
+//                 : './images/NotFound.png'
+//             }">
+//           </div>
+//           <div class="movie-info">
+//             <h3 class="movie-title">
+//               ${details.Title}
+//             </h3>
+//             <ul class="movie-misc-info">
+//               <li class="year">Year: ${details.Year}</li>
+//               <li class="rated">Ratings: ${
+//                 details.Ratings[0].Value
+//               }</li>
+//               <li class="released">Released: ${details.Released}</li>
+//             </ul>
+//             <p class="genre">
+//               <b>Genre:</b>${details.Genre}
+//             </p>
+//             <p class="writer"><b>Writer:</b>
+//               ${details.Writer}</p>
+//             <p class="actors"><b>Actors: ${details.Actors}</b></p>
+//             <p class="plot">
+//               <b>
+//                 Plot:
+//               </b>${details.Plot}
+//             </p>
+//             <p class="language"><b>Language:</b>
+//               ${details.Language}</p>
+//             <p class="awards"><b><i class="fas fa-award"></i></b>${
+//               details.Awards
+//             }</p>
+//           </div>
+//   `
+// }
 
-// 배경을 클릭했을 때 검색 리스트 창 닫기
-window.addEventListener('click', (e) => {
-  if (e.target.classList !== 'from-control') {
-    searchListEl.classList.add('hide-search-list')
-  }
-})
+// // 배경을 클릭했을 때 검색 리스트 창 닫기
+// window.addEventListener('click', (e) => {
+//   if (e.target.classList !== 'from-control') {
+//     searchListEl.classList.add('hide-search-list')
+//   }
+// })
