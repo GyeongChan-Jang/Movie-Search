@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   //parcel index.html
   // 파일을 읽어들이기 시작하는 진입점 설정
-  entry: 'src/js/main.js',
+  entry: './src/js/main.js',
 
   // 결과물(번들)을 변환하는 설정
   output: {
@@ -28,12 +28,12 @@ module.exports = {
           'sass-loader',
         ],
       },
-      {
-        test: /\.js$/,
-        use: [
-          'babel-loader', // 웹팩이 해석하고 적용하기 위해 bable-loader를 사용
-        ],
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: [
+      //     'babel-loader', // 웹팩이 해석하고 적용하기 위해 bable-loader를 사용
+      //   ],
+      // },
     ],
   },
 
