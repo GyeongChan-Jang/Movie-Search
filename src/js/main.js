@@ -4,10 +4,11 @@ import '../scss/main.scss'
 const movieInputEl = document.querySelector('#movie-search-box')
 const searchListEl = document.querySelector('.search-list')
 const resultGridEl = document.querySelector('.result-grid')
+const detailContainerEl = document.querySelector('.details-container')
 
 // 영화 정보를 요청해서 받아옴 from API
 async function getMovies(searchTerm) {
-  const URL = `https://www.omdbapi.com/?apikey=7035c60c&s=${searchTerm}`
+  const URL = `https://www.omdbapi.com/?apikey=7035c60c&s=${searchTerm}&page=1`
   const res = await fetch(`${URL}`)
   const data = await res.json()
   if (data.Response === 'True') displayMovieList(data.Search)
@@ -28,9 +29,10 @@ movieInputEl.onkeyup = () => {
   findMovies()
 }
 
-movieInputEl.click = () => {
-  findMovies()
+movieInputEl.onclick = () => {
+  searchListEl.classList.add('hide-search-list')
 }
+
 // 받아온 데이터를 html요소를 만들어 화면에 출력
 function displayMovieList(movies) {
   searchListEl.innerHTML = '' // 단어가 완성되면 해당 단어로 업데이트 되게 하기 위해
@@ -55,6 +57,7 @@ function displayMovieList(movies) {
   }
   loadMovieDetails()
 }
+
 function loadMovieDetails() {
   const searchListMoives = searchListEl.querySelectorAll(
     '.search-list-item',
@@ -78,7 +81,7 @@ function displayMovieDetails(details) {
   <div class="movie-poster">
             <img src="${
               details.Poster !== 'N/A'
-                ? details.Poster
+                ? requestDiffSizeUmage(details.Poster)
                 : './images/NotFound.png'
             }">
           </div>
@@ -87,35 +90,45 @@ function displayMovieDetails(details) {
               ${details.Title}
             </h3>
             <ul class="movie-misc-info">
-              <li class="year">Year: ${details.Year}</li>
-              <li class="rated">Ratings: ${
-                details.Ratings[0].Value
-              }</li>
-              <li class="released">Released: ${details.Released}</li>
+            <li class="rated"><span>Ratings:</span> ${
+              details.Ratings[0].Value
+            }</li>
+            <li class="released"><span>Released:</span> ${
+              details.Released
+            }</li>
             </ul>
-            <p class="genre">
-              <b>Genre:</b>${details.Genre}
+            <div class="genre">
+              <p>Genre</p>${details.Genre}
+            </div>
+            <div class="writer">
+              <p>Writer</p>
+              ${details.Writer}
+            </div>
+            <div class="actors">
+              <p>Actors</p> ${details.Actors}
+            </div>
+            <div class="plot">
+              <p>Plot</p>${details.Plot}
+            </div>
+            <div class="language">
+              <span>Language</span>
+              ${details.Language}
+            </div>
+            <p class="awards">
+              <i class="fas fa-award"></i>${details.Awards}
             </p>
-            <p class="writer"><b>Writer:</b>
-              ${details.Writer}</p>
-            <p class="actors"><b>Actors: ${details.Actors}</b></p>
-            <p class="plot">
-              <b>
-                Plot:
-              </b>${details.Plot}
-            </p>
-            <p class="language"><b>Language:</b>
-              ${details.Language}</p>
-            <p class="awards"><b><i class="fas fa-award"></i></b>${
-              details.Awards
-            }</p>
           </div>
   `
 }
 
-// 배경을 클릭했을 때 검색 리스트 창 닫기
-window.addEventListener('click', (e) => {
-  if (e.target.classList !== 'from-control') {
-    searchListEl.classList.add('hide-search-list')
-  }
-})
+// 더 높은 해상도의 이미지를 가져오는 함수
+function requestDiffSizeUmage(url, size = 700) {
+  return url.replace('SX300', 'SX${size}')
+}
+
+// // 배경을 클릭했을 때 검색 리스트 창 닫기
+// window.addEventListener('click', (e) => {
+//   if (e.target.classList !== 'from-control') {
+//     searchListEl.classList.add('hide-search-list')
+//   }
+// })
