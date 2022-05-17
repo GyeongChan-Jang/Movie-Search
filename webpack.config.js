@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   //parcel index.html
   // 파일을 읽어들이기 시작하는 진입점 설정
-  entry: './src/js/main.js',
+  entry: 'src/js/main.js',
 
   // 결과물(번들)을 변환하는 설정
   output: {
