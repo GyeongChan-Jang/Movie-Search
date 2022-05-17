@@ -28,21 +28,8 @@
 
 ---
 
-## HTML에 함수 등록
+## Preview
 
-// html요소의 함수 등록은 세가지 방법이 있음
-// 1. html 요소에 event 속성에 등록 -> 안됨..!(해결 못함)
-// 2. dom 요소를 가져와 이벤트 속성을 등록 시키는 방법 - 이 방법 채택
-// 3, addEventListner를 통해 등록하는 방법
+![movie-search-preview](https://user-images.githubusercontent.com/90392240/168754366-7fe06dc9-9ba2-40f4-a98a-2c61719bca2f.gif)
 
-### 임시저장코드
-
-<!-- <div class="search-list-item">
-            <div class="search-item-thumbnail">
-              <img src="/images/interstellar.jpg" alt="interstella">
-            </div>
-            <div class="search-item-info">
-              <h3>Interstella</h3>
-              <p>2014</p>
-            </div>
-          </div> -->
+##
