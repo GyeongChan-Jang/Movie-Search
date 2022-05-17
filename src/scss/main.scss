@@ -6,6 +6,7 @@ $back-skyblue: #00a8e8;
 $text-skyblue: #a9def9;
 $back-light: #f1faee;
 $text-orange: #ffb703;
+$normal-font: #8d99ae;
 
 
 
@@ -95,6 +96,7 @@ body {
         cursor: pointer;
         &:hover {
           background-color: $back-light;
+          transform: scale(1.1);
         }
         .search-item-info {
           margin-top: 1rem;
@@ -120,6 +122,9 @@ body {
 
     // Movie Details Result
       .result-container {
+        &.hide-details {
+          display: none;
+        }
         padding: 3rem 0;
         .result-grid {
           display: grid;
@@ -131,17 +136,32 @@ body {
         .movie-poster {
           max-width: 500px;
           margin: 0 auto;
-          border: 4px solid $font-color;
+          border: 8px solid $font-color;
+          border-radius: 0.3rem;
           @media (max-width: 970px) {
             margin: 0 auto;
           }
         }
         .movie-info {
-          text-align: center;
+          @media(max-width: 970px) {
+            width: 500px;
+            margin: 2rem auto;
+          }
+          width: 600px;
+          margin: 0 auto;
+          text-align: left;
           color: $font-color;
-          padding-top: 3rem;
-          .movie-title {
-            font-size: 2rem;
+          padding: 2rem;
+          border: 8px solid $font-color;
+          border-radius: 0.3rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          font-size: 1rem;
+          color: $normal-font;
+          .movie-title {    
+            padding: 1rem;
+            font-size: 3rem;
             color: $font-color;
             background-color: $back-light;
           }
@@ -151,32 +171,55 @@ body {
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            .year {
-              font-weight: 500;
-            }
+            color: $font-color;
+            border: 4px solid $font-color;
+            border-radius: 0.2rem;
             .rated {
-              background-color: $text-skyblue;
               padding: 0 0.4rem;
               margin: 0 0.4rem;
               border-radius: 3px;
               font-weight: 600;
+              font-size: 1.2rem;
+              span {
+                color: $back-skyblue;
+              }
             }
             .released {
-              font-size: 0.9rem;
-              opacity: 0.9;
+              font-weight: 600;
+              font-size: 1.2rem;
+              span {
+                color: $back-skyblue;
+              }
             }
           }
           .genre {
-            background-color: $text-skyblue;
-  
+            p {
+              color: $font-color;
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+            }
           }
           .writer {
-            padding: 0.5rem;
-            margin: 1rem 0;
+            p {
+              color: $font-color;
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+            }
+          }
+          .actors {
+            p{
+              color: $font-color;
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+            }
           }
           .plot {
             min-width: 400px;
-            margin: 1rem auto;
+            p {
+              color: $font-color;
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+            }
           }
           .language {
             color: $text-orange;
